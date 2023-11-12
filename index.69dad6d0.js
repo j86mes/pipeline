@@ -35,7 +35,7 @@ t(h=h>i?i:h),!0===a&&window.requestAnimationFrame(t=>{s(t)})};return window.requ
 // 	};
 // 	return newCooords;
 // }
-let i=(t,e,i)=>({renderX:e.xOffset+(t.renderX-e.frameX)*e.pixelToFrameRatio,renderY:i.canvas.height-e.frameY-(t.renderY+t.renderHeight)*e.pixelToFrameRatio,renderWidth:t.renderWidth*e.pixelToFrameRatio,renderHeight:t.renderHeight*e.pixelToFrameRatio});t.exports.renderRect=(t,e,h)=>{h.beginPath(),h.fillStyle=t.colour;let a=i(t,e,h);//const translateCoordinatesForCanvas = getTranslatedCoordinates(p, ctx);
+let i=(t,e,i)=>{let h=(i.canvas.height-e.frameHeight*e.pixelToFrameRatio)/2,a=(t.renderY+t.renderHeight)*e.pixelToFrameRatio,r=i.canvas.height-h-a;return{renderX:e.xOffset+(t.renderX-e.frameX)*e.pixelToFrameRatio,renderY:r,renderWidth:t.renderWidth*e.pixelToFrameRatio,renderHeight:t.renderHeight*e.pixelToFrameRatio}};t.exports.renderRect=(t,e,h)=>{h.beginPath(),h.fillStyle=t.colour;let a=i(t,e,h);//const translateCoordinatesForCanvas = getTranslatedCoordinates(p, ctx);
 //ctx.fillRect(p.x - camera.x, p.y - camera.y, p.width, p.height);
 h.fillRect(a.renderX,a.renderY,a.renderWidth,a.renderHeight)},t.exports.renderRotatedRect=(t,e,h,a)=>{// save ctx so we can undo our mods
 a.save(),a.beginPath(),a.fillStyle=t.colour;let r=i(t,h,a);// move to the center of the sprite for rotation
